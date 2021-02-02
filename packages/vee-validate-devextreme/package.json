@@ -1,0 +1,29 @@
+{
+  "name": "vee-validate-devextreme",
+  "version": "0.1.0",
+  "description": "Vee-Validation for DevXtreme Vue",
+  "author": "John Campion",
+  "license": "MIT",
+  "module": "dist/vee-validate-devextreme.esm.js",
+  "unpkg": "dist/vee-validate-devextreme.js",
+  "main": "dist/vee-validate-devextreme.js",
+  "types": "dist/vee-validate-devextreme.d.ts",
+  "homepage": "https://vee-validate.logaretm.com/",
+  "repository": "https://github.com/johncampionjr/vee-validate-devextreme",
+  "sideEffects": false,
+  "keywords": [
+    "VueJS",
+    "Vue",
+    "validation",
+    "validator",
+    "inputs",
+    "form"
+  ],
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ],
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}
