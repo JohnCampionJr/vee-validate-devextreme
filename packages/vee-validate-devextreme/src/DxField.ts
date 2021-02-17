@@ -1,8 +1,8 @@
 import { h, defineComponent, toRef, SetupContext, resolveDynamicComponent, computed, watch } from 'vue';
-import { getConfig, useField, fieldUtils } from 'vee-validate';
+import { getConfigDx as getConfig } from './config';
+import { useField } from 'vee-validate';
 import DxTextBox from 'devextreme-vue/text-box';
-
-const { normalizeChildren, hasCheckedAttr, shouldHaveValueBinding } = fieldUtils;
+import { normalizeChildren, hasCheckedAttr, shouldHaveValueBinding } from './utils';
 
 interface ValidationTriggersProps {
   validateOnMount: boolean;
@@ -26,7 +26,7 @@ export const DxField = defineComponent({
     },
     rules: {
       type: [Object, String, Function],
-      default: null,
+      default: undefined,
     },
     validateOnMount: {
       type: Boolean,

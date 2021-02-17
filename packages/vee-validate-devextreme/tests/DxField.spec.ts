@@ -1,5 +1,6 @@
 import flushPromises from 'flush-promises';
-import { defineRule, configure } from 'vee-validate';
+import { defineRule } from 'vee-validate';
+import { configureDx as configure } from '@/vee-validate-devextreme';
 import { mountWithHoc, setValue, dispatchEvent } from './helpers';
 import * as yup from 'yup';
 import { ref, Ref } from 'vue';
@@ -19,7 +20,7 @@ beforeEach(() => {
 
 describe('<DxField />', () => {
   const REQUIRED_MESSAGE = `This field is required`;
-  defineRule('required', value => {
+  defineRule('required', (value: string) => {
     if (!value) {
       return REQUIRED_MESSAGE;
     }
@@ -27,20 +28,20 @@ describe('<DxField />', () => {
     return true;
   });
 
-  defineRule('email', email => {
+  defineRule('email', (email: string) => {
     return email === 'email' ? true : 'The field must be a valid email';
   });
 
-  defineRule('min', (value, [min]: any) => {
+  defineRule('min', (value: string, [min]: any) => {
     return value && value.length >= min ? true : 'This field must be at least 3 characters';
   });
 
   // FIXME: typing here should be more lax
-  defineRule('confirmed', (value, [target]: any) => {
+  defineRule('confirmed', (value: string, [target]: any) => {
     return value === target ? true : 'inputs do not match';
   });
 
-  defineRule('confirmedObj', (value, { target }: any) => {
+  defineRule('confirmedObj', (value: string, { target }: any) => {
     return value === target ? true : 'inputs do not match';
   });
 
@@ -323,7 +324,7 @@ describe('<DxField />', () => {
   });
 
   test('validates file input in scoped slots', async () => {
-    defineRule('atLeastOne', files => {
+    defineRule('atLeastOne', (files: File[]) => {
       return files && files.length >= 1;
     });
 
@@ -347,7 +348,7 @@ describe('<DxField />', () => {
   });
 
   test('validates file input by rendering', async () => {
-    defineRule('atLeastOne', files => {
+    defineRule('atLeastOne', (files: File[]) => {
       return files && files.length >= 1;
     });
 
@@ -425,13 +426,16 @@ describe('<DxField />', () => {
 
   test('avoids race conditions between successive validations', async () => {
     // A decreasing timeout (the most recent validation will finish before new ones).
-    defineRule('longRunning', value => {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve(value === 42 ? true : 'No Life');
-        }, 20);
-      });
-    });
+    defineRule(
+      'longRunning',
+      (value: unknown): Promise<boolean | string> => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(value === 42 ? true : 'No Life');
+          }, 20);
+        });
+      }
+    );
 
     const wrapper = mountWithHoc({
       template: `
@@ -704,7 +708,7 @@ describe('<DxField />', () => {
       generateMessage: ({ field }) => `${field} is bad`,
     });
 
-    defineRule('noMessage', value => {
+    defineRule('noMessage', (value: number) => {
       return value === 48;
     });
 
