@@ -1,9 +1,0 @@
-{
-  "version": "v1",
-  "packages": {
-    "vee-validate": {
-      "signature": "dd910720460439cf6b735e4d0038242b",
-      "file": true
-    }
-  }
-}

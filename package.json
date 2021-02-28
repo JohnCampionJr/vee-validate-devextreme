@@ -62,27 +62,11 @@
     "yup": "^0.32.8"
   },
   "dependencies": {
-    "vee-validate": "^4.1.19"
+    "vee-validate": "^4.1.19",
+    "vue": "^3.0.0"
   },
   "peerDependencies": {
     "vee-validate": "^4.1.19",
-    "vue": "^3.0.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint --edit -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write",
-      "jest --maxWorkers=1 --bail --findRelatedTests"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "jest --maxWorkers=1 --bail --findRelatedTests"
-    ]
+    "vue": "^3.0.0"
   }
 }

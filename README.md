@@ -1,17 +1,5 @@
 vee-validate-devextreme is an integration of [Vee-Validate] (https://vee-validate.logaretm.com/v4) and [DevExtreme's Vue Components]()
 
-## Features
-
-- **🍞 Easy:** Declarative validation that is familiar and easy to setup
-- **🧘‍♀️ Flexible:** Synchronous, Asynchronous, field-level or form-level validation
-- **⚡️ Fast:** Build faster forms faster with intuitive API and small footprint
-- **🏏 Minimal:** Only handles the complicated and painful form concerns, gives you full control over everything else
-- **🍤 Tiny:** Small footprint < 5kb which makes your apps faster to load
-- **😎 UI Agnostic:** Works with native HTML elements or your favorite UI library components
-- **🦾 Progressive:** Works with any setup whether you use Vue.js as a progressive enhancement or in a complex setup
-- **✅ Built-in Rules:** Companion lib with 25+ Rules that covers most needs in most web applications
-- **🌐 i18n:** 45+ locales for built-in rules contributed by developers from all over the world
-
 ## Getting Started
 
 ### Vue version support

@@ -32,7 +32,7 @@ function createConfig(pkg, format) {
   const config = {
     input: {
       input: path.resolve(__dirname, `../packages/${pkg}/src/index.ts`),
-      external: ['vue'],
+      external: ['vue', 'vee-validate', 'devextreme', 'devextreme-vue/text-box'],
       plugins: [tsPlugin, replace({ __VERSION__: version })],
     },
     output: {
@@ -45,6 +45,8 @@ function createConfig(pkg, format) {
       name: format === 'umd' ? formatNameMap[pkg] : undefined,
       globals: {
         vue: 'Vue',
+        'vee-validate': 'VeeValidate',
+        'devextreme-vue/text-box': 'DxTextBox',
       },
     },
   };
